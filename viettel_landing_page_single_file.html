@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Viettel AI Cloud - Landing Page</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: #ffffff;
+      color: #111827;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    .container {
+      width: min(1200px, 92%);
+      margin: auto;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      border-radius: 12px;
+      font-weight: 700;
+      transition: 0.3s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: #e30613;
+      color: white;
+      box-shadow: 0 10px 20px rgba(227, 6, 19, 0.25);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      background: #c7000d;
+    }
+
+    .btn-outline {
+      border: 2px solid #e30613;
+      color: #e30613;
+    }
+
+    .btn-outline:hover {
+      background: #e30613;
+      color: white;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #e30613;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+      font-weight: 500;
+    }
+
+    .hero {
+      padding: 90px 0 70px;
+      background: linear-gradient(135deg, #fff5f5, #ffffff);
+    }
+
+    .hero-wrapper {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 60px;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      line-height: 1.15;
+      margin-bottom: 24px;
+      font-weight: 800;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: #4b5563;
+      margin-bottom: 32px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hero-card {
+      background: white;
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    }
+
+    .dashboard {
+      display: grid;
+      gap: 18px;
+    }
+
+    .dashboard-item {
+      padding: 18px;
+      border-radius: 16px;
+      background: #f9fafb;
+      border-left: 6px solid #e30613;
+    }
+
+    .section {
+      padding: 90px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title h2 {
+      font-size: 2.5rem;
+      margin-bottom: 12px;
+    }
+
+    .section-title p {
+      color: #6b7280;
+    }
+
+    .brands {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .brand-card {
+      background: #f9fafb;
+      padding: 28px;
+      border-radius: 18px;
+      text-align: center;
+      font-weight: 700;
+      border: 1px solid #f0f0f0;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .feature-card {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+      transition: 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .feature-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 16px;
+      background: #ffe8ea;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+
+    .how-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .step {
+      background: #fff5f5;
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+    }
+
+    .step-number {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: #e30613;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      margin: 0 auto 18px;
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .testimonial {
+      padding: 28px;
+      border-radius: 20px;
+      background: white;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+    }
+
+    .pricing-wrapper {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .pricing-card {
+      border: 1px solid #ececec;
+      border-radius: 24px;
+      padding: 32px;
+      text-align: center;
+      background: white;
+    }
+
+    .pricing-card.active {
+      border: 2px solid #e30613;
+      transform: scale(1.03);
+      box-shadow: 0 16px 40px rgba(227,6,19,0.15);
+    }
+
+    .price {
+      font-size: 2.8rem;
+      color: #e30613;
+      font-weight: 800;
+      margin: 16px 0;
+    }
+
+    .pricing-card ul {
+      list-style: none;
+      margin: 24px 0;
+      text-align: left;
+    }
+
+    .pricing-card li {
+      margin-bottom: 12px;
+    }
+
+    .faq {
+      max-width: 850px;
+      margin: auto;
+      display: grid;
+      gap: 18px;
+    }
+
+    .faq-item {
+      background: white;
+      border-radius: 16px;
+      padding: 22px;
+      border: 1px solid #ececec;
+    }
+
+    .cta-banner {
+      background: linear-gradient(135deg, #e30613, #b9000c);
+      color: white;
+      padding: 70px 40px;
+      border-radius: 30px;
+      text-align: center;
+    }
+
+    .cta-banner h2 {
+      font-size: 2.5rem;
+      margin-bottom: 18px;
+    }
+
+    footer {
+      background: #111827;
+      color: white;
+      padding: 50px 0;
+      margin-top: 90px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .footer-grid h4 {
+      margin-bottom: 14px;
+    }
+
+    .footer-grid p,
+    .footer-grid a {
+      color: #d1d5db;
+      font-size: 0.95rem;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: 992px) {
+      .hero-wrapper,
+      .features-grid,
+      .how-grid,
+      .testimonial-grid,
+      .pricing-wrapper,
+      .footer-grid,
+      .brands {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hero h1 {
+        font-size: 2.8rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero-wrapper,
+      .features-grid,
+      .how-grid,
+      .testimonial-grid,
+      .pricing-wrapper,
+      .footer-grid,
+      .brands {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 60px;
+      }
+
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .section-title h2 {
+        font-size: 2rem;
+      }
+
+      .cta-banner h2 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">VIETTEL AI CLOUD</div>
+        <div class="nav-links">
+          <a href="#features">Tính năng</a>
+          <a href="#how">Cách hoạt động</a>
+          <a href="#pricing">Bảng giá</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contact" class="btn btn-primary">Dùng thử</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-wrapper">
+      <div>
+        <h1>Nền tảng AI Cloud dành cho doanh nghiệp Việt</h1>
+        <p>
+          Tăng tốc chuyển đổi số với hạ tầng AI mạnh mẽ, bảo mật chuẩn Viettel,
+          triển khai nhanh chóng và tối ưu chi phí.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#pricing" class="btn btn-primary">Bắt đầu ngay</a>
+          <a href="#features" class="btn btn-outline">Xem demo</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="dashboard">
+          <div class="dashboard-item">
+            <h3>⚡ AI Processing</h3>
+            <p>Khả năng xử lý dữ liệu thời gian thực với GPU Cloud.</p>
+          </div>
+
+          <div class="dashboard-item">
+            <h3>🔐 Enterprise Security</h3>
+            <p>Bảo mật dữ liệu theo tiêu chuẩn doanh nghiệp và chính phủ.</p>
+          </div>
+
+          <div class="dashboard-item">
+            <h3>📈 Analytics Dashboard</h3>
+            <p>Giám sát hiệu suất AI trực quan và dễ sử dụng.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Proof -->
+  <section class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Được tin dùng bởi doanh nghiệp hàng đầu</h2>
+        <p>Hơn 5.000+ tổ chức đang sử dụng giải pháp AI của Viettel.</p>
+      </div>
+
+      <div class="brands">
+        <div class="brand-card">Viettel Telecom</div>
+        <div class="brand-card">Viettel Solutions</div>
+        <div class="brand-card">Viettel IDC</div>
+        <div class="brand-card">Viettel Cyber Security</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Value Proposition / Features -->
+  <section class="section" id="features">
+    <div class="container">
+      <div class="section-title">
+        <h2>Lợi ích nổi bật</h2>
+        <p>Tối ưu hiệu suất vận hành với công nghệ AI hiện đại.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🚀</div>
+          <h3>Triển khai nhanh</h3>
+          <p>Khởi tạo hạ tầng AI chỉ trong vài phút với hệ thống cloud tự động.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🛡️</div>
+          <h3>Bảo mật cao</h3>
+          <p>Tuân thủ tiêu chuẩn bảo mật doanh nghiệp và dữ liệu nội địa.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <h3>Quản trị tập trung</h3>
+          <p>Theo dõi tài nguyên và hiệu năng AI trên một dashboard duy nhất.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="section" id="how" style="background:#fafafa;">
+    <div class="container">
+      <div class="section-title">
+        <h2>Cách hoạt động</h2>
+        <p>Quy trình triển khai đơn giản chỉ với 3 bước.</p>
+      </div>
+
+      <div class="how-grid">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Đăng ký</h3>
+          <p>Tạo tài khoản doanh nghiệp và cấu hình hệ thống AI Cloud.</p>
+        </div>
+
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Kết nối dữ liệu</h3>
+          <p>Đồng bộ dữ liệu nội bộ và tích hợp API nhanh chóng.</p>
+        </div>
+
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Vận hành AI</h3>
+          <p>Khai thác AI để phân tích, tối ưu và tự động hóa doanh nghiệp.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Khách hàng nói gì?</h2>
+        <p>Những phản hồi tích cực từ doanh nghiệp sử dụng Viettel AI Cloud.</p>
+      </div>
+
+      <div class="testimonial-grid">
+        <div class="testimonial">
+          <p>“Hệ thống AI giúp doanh nghiệp chúng tôi giảm 40% thời gian xử lý dữ liệu.”</p>
+          <strong>— Nguyễn Minh Anh, CTO</strong>
+        </div>
+
+        <div class="testimonial">
+          <p>“Triển khai cực nhanh và đội ngũ hỗ trợ chuyên nghiệp.”</p>
+          <strong>— Trần Quốc Bảo, Product Manager</strong>
+        </div>
+
+        <div class="testimonial">
+          <p>“Bảo mật tốt, phù hợp cho dữ liệu doanh nghiệp tại Việt Nam.”</p>
+          <strong>— Lê Hải Nam, IT Director</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="section" id="pricing" style="background:#fafafa;">
+    <div class="container">
+      <div class="section-title">
+        <h2>Bảng giá linh hoạt</h2>
+        <p>Phù hợp với mọi quy mô doanh nghiệp.</p>
+      </div>
+
+      <div class="pricing-wrapper">
+        <div class="pricing-card">
+          <h3>Starter</h3>
+          <div class="price">499K</div>
+          <p>/ tháng</p>
+          <ul>
+            <li>✔ 1 AI Workspace</li>
+            <li>✔ 50GB Storage</li>
+            <li>✔ Email Support</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline">Đăng ký</a>
+        </div>
+
+        <div class="pricing-card active">
+          <h3>Business</h3>
+          <div class="price">1.9M</div>
+          <p>/ tháng</p>
+          <ul>
+            <li>✔ 10 AI Workspace</li>
+            <li>✔ GPU Cloud</li>
+            <li>✔ Priority Support</li>
+          </ul>
+          <a href="#contact" class="btn btn-primary">Phổ biến nhất</a>
+        </div>
+
+        <div class="pricing-card">
+          <h3>Enterprise</h3>
+          <div class="price">Custom</div>
+          <p>Liên hệ tư vấn</p>
+          <ul>
+            <li>✔ Unlimited Resources</li>
+            <li>✔ Dedicated Cluster</li>
+            <li>✔ 24/7 Support</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline">Liên hệ</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section-title">
+        <h2>Câu hỏi thường gặp</h2>
+        <p>Giải đáp các thắc mắc phổ biến về nền tảng AI Cloud.</p>
+      </div>
+
+      <div class="faq">
+        <div class="faq-item">
+          <h3>Viettel AI Cloud phù hợp với ai?</h3>
+          <p>Phù hợp với startup, SME và doanh nghiệp lớn cần triển khai AI nhanh chóng.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Có hỗ trợ tích hợp API không?</h3>
+          <p>Có. Nền tảng hỗ trợ REST API và SDK cho nhiều hệ thống.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Dữ liệu có được lưu tại Việt Nam?</h3>
+          <p>Toàn bộ dữ liệu được lưu trữ trên hạ tầng cloud nội địa của Viettel.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="cta-banner">
+        <h2>Sẵn sàng tăng tốc doanh nghiệp với AI?</h2>
+        <p style="margin-bottom:28px; opacity:0.9;">
+          Đăng ký dùng thử miễn phí ngay hôm nay cùng Viettel AI Cloud.
+        </p>
+        <a href="#" class="btn btn-outline" style="background:white;color:#e30613;border:none;">
+          Đăng ký Demo
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <h4>Viettel AI Cloud</h4>
+        <p>Nền tảng AI dành cho doanh nghiệp Việt Nam.</p>
+      </div>
+
+      <div>
+        <h4>Sản phẩm</h4>
+        <a href="#">AI Cloud</a>
+        <a href="#">GPU Server</a>
+        <a href="#">Analytics</a>
+      </div>
+
+      <div>
+        <h4>Hỗ trợ</h4>
+        <a href="#">FAQ</a>
+        <a href="#">Liên hệ</a>
+        <a href="#">Tài liệu</a>
+      </div>
+
+      <div>
+        <h4>Kết nối</h4>
+        <p>Email: support@viettel.vn</p>
+        <p>Hotline: 1800 8098</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
